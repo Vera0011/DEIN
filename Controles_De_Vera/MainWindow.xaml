@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Controles_De_Vera"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Controles de Vera" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <StackPanel Margin="10" Orientation="Vertical">
+        <TextBox TextAlignment="Center">Controles de Vera</TextBox>
+        <Grid Width="auto" Height="auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="400"/>
+                <ColumnDefinition Width="400"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Width="auto" Height="auto">
+                    asdfasdfsdafsadf
+            </TextBlock>
+            <ComboBox Grid.Row="1" Grid.Column="1" Width="auto" Height="auto">
+                
+            </ComboBox>
+        </Grid>
+    </StackPanel>
 </Window>
