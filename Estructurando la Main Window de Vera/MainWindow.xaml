@@ -1,0 +1,50 @@
+﻿<Window x:Class="Estructurando_la_Main_Window_de_Adrian_Vera.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Estructurando_la_Main_Window_de_Adrian_Vera"
+        mc:Ignorable="d"
+        Title="EasyBase" Height="450" Width="800" Icon="./src/logo_recortado.png">
+    <DockPanel LastChildFill="False">
+        <Border DockPanel.Dock="Top" BorderThickness="0, 0, 0, 1" BorderBrush="#FFC971">
+            <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Foreground="#CC5803" BorderThickness="0"  Height="40" TextAlignment="Center" VerticalContentAlignment="Center" TextChanged="TextBox_TextChanged">Main</TextBox>
+            <TextBox Grid.Column="0" Padding="10" Grid.Row="0" HorizontalAlignment="Left" Foreground="#CC5803" BorderThickness="0"  Height="40" TextAlignment="Center" VerticalContentAlignment="Center">Logo</TextBox>
+            <TextBox Grid.Column="2" Padding="10" Grid.Row="0" HorizontalAlignment="Right" Foreground="#CC5803" BorderThickness="0"  Height="40" TextAlignment="Center" VerticalContentAlignment="Center">User login</TextBox>
+        </Grid>
+        </Border>
+
+        <Border BorderThickness="0, 0, 1, 0" BorderBrush="#FFC971">
+            <StackPanel Orientation="Vertical" DockPanel.Dock="Left" Width="auto">
+                <Border BorderThickness="0, 0, 0, 1" BorderBrush="#FFC971" Background="#FFF8EB">
+                    <TextBox Foreground="#CC5803" Margin="10" Height="40" TextAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" Background="#FFF8EB">Example Label</TextBox>
+                </Border>
+                <Border BorderThickness="0, 0, 0, 1" BorderBrush="#FFC971" Background="#FFF8EB">
+                    <TextBox Foreground="#CC5803" Margin="10" Height="40" TextAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" Background="#FFF8EB">Example Label</TextBox>
+                </Border>
+            </StackPanel>
+        </Border>
+
+        <WrapPanel Margin="10, 10, 0, 0" Width="auto" Orientation="Horizontal">
+            <Border BorderThickness="1" BorderBrush="#FFC971">
+                <DockPanel Width="80" Height="80">
+                    <Label Width="auto" Height="60" DockPanel.Dock="Top" BorderBrush="#FFC971" BorderThickness="0, 0, 0, 1">
+                        <Label.Background>
+                            <ImageBrush AlignmentX="Center" AlignmentY="Top" ImageSource="./src/mysql-icon.png"></ImageBrush>
+                        </Label.Background>
+                    </Label>
+                    <TextBox Foreground="#CC5803" DockPanel.Dock="Bottom" Width="auto" HorizontalContentAlignment="Center" BorderThickness="0">
+                        MySQL
+                    </TextBox>
+                </DockPanel>
+            </Border>
+        </WrapPanel>
+    </DockPanel>
+</Window>
