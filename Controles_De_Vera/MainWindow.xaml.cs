@@ -24,5 +24,15 @@ namespace Controles_De_Vera
         {
             InitializeComponent();
         }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void gridContainer_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
