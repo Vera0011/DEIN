@@ -5,8 +5,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Navigation"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Navegación de Vera" Height="550" Width="800"
+        Background="Transparent"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="true">
+    <Border CornerRadius="12">
+        <Border.Background>
+            <ImageBrush ImageSource="./src/back-image.jpg" Stretch="None"/>
+        </Border.Background>
+        <Border CornerRadius="10" BorderThickness="5" Opacity="0.95">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 1">
+                    <GradientStop Color="#462AD8" Offset="0"/>
+                    <GradientStop Color="#DA34AE" Offset="0.75"/>
+                    <GradientStop Color="#8A16C1" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,2" EndPoint="1,0">
+                    <GradientStop Color="#060531" Offset="0"/>
+                    <GradientStop Color="#1B1448" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="30"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="MENÚ PRINCIPAL" Foreground="White" FontSize="40" FontWeight="Medium" FontFamily="Montserrat" Grid.Row="0" Grid.Column="2" Margin="0, 100, 0, 0"/>
+                <Button Name="Boton1_MainWindow" Content="Ir a la ventana 1" Height="150" Width="200" Grid.Row="1" Grid.Column="1" Background="Blue" Foreground="White" FontSize="20" FontFamily="Montserrat" Cursor="Hand" Click="Boton_Window1"/>
+                <Button Name="Boton2_MainWindow" Content="Ir a la ventana 2" Height="150" Width="200" Grid.Row="1" Grid.Column="2" Background="Blue" Foreground="White" FontSize="20" FontFamily="Montserrat" Cursor="Hand" Click="Boton_Window2"/>
+                <Button Name="Boton3_MainWindow" Content="Salir" Height="150" Width="200" Grid.Row="1" Grid.Column="3" Background="DeepSkyBlue" Foreground="White" FontSize="20" FontFamily="Montserrat" Cursor="Hand" Click="Boton_Salir"/>
+            </Grid>
+        </Border>
+    </Border>
 </Window>
