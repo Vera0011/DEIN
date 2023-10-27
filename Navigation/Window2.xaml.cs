@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Navigation
 {
     /// <summary>
-    /// Lógica de interacción para Window1.xaml
+    /// Lógica de interacción para Window2.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class Window2 : Window
     {
-        public Window1()
+        public Window2()
         {
             InitializeComponent();
         }
@@ -29,6 +29,11 @@ namespace Navigation
             MainWindow AbrirMainWindow = new MainWindow();
             this.Close();
             AbrirMainWindow.Show();
+        }
+
+        private void Boton2_AbrirPagina(object sender, RoutedEventArgs args)
+        {
+            MyFrame.NavigationService.Navigate(new Page1());
         }
     }
 }
