@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Estilos_de_Vera.interfaces
+namespace Estilos_de_Vera
 {
     /// <summary>
     /// Lógica de interacción para Window2.xaml

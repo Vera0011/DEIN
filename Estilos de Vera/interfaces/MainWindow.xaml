@@ -5,6 +5,77 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Estilos_de_Vera"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="EasyBase" Height="550" Width="800" WindowStartupLocation="CenterScreen" MaxHeight="550" MaxWidth="800" MinHeight="550" MinWidth="800">
+    <Window.Resources>
+        <Style x:Key="object_database_dockPanel">
+            <Setter Property="Control.Width" Value="80"/>
+            <Setter Property="Control.Height" Value="80"/>
+        </Style>
+        <Style x:Key="object_database_Label">
+            <Setter Property="Control.Height" Value="60"/>
+            <Setter Property="DockPanel.Dock" Value="Top"/>
+            <Setter Property="Control.BorderBrush" Value="#FFC971"/>
+            <Setter Property="Control.BorderThickness" Value="0, 0, 0, 1"/>
+        </Style>
+        <Style x:Key="object_database_TextBlock">
+            <Setter Property="Control.Foreground" Value="#CC5803"/>
+            <Setter Property="DockPanel.Dock" Value="Bottom"/>
+            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+    
+    
+    <DockPanel LastChildFill="False">
+        <Border DockPanel.Dock="Top" BorderThickness="0, 0, 0, 1" BorderBrush="#FFC971">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
+                <TextBox Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Foreground="#CC5803" BorderThickness="0"  Height="40" TextAlignment="Center" VerticalContentAlignment="Center">Main</TextBox>
+                <TextBox Grid.Column="0" Padding="10" Grid.Row="0" HorizontalAlignment="Left" Foreground="#CC5803" BorderThickness="0"  Height="40" TextAlignment="Center" VerticalContentAlignment="Center">Logo</TextBox>
+                <TextBox Grid.Column="2" Padding="10" Grid.Row="0" HorizontalAlignment="Right" Foreground="#CC5803" BorderThickness="0"  Height="40" TextAlignment="Center" VerticalContentAlignment="Center">User login</TextBox>
+            </Grid>
+        </Border>
+
+        <Border BorderThickness="0, 0, 1, 0" BorderBrush="#FFC971">
+            <StackPanel Orientation="Vertical" DockPanel.Dock="Left" Width="auto">
+                <Border BorderThickness="0, 0, 0, 1" BorderBrush="#FFC971" Background="#FFF8EB">
+                    <TextBox Foreground="#CC5803" Margin="10" Height="40" TextAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" Background="#FFF8EB">Example Label</TextBox>
+                </Border>
+                <Border BorderThickness="0, 0, 0, 1" BorderBrush="#FFC971" Background="#FFF8EB">
+                    <TextBox Foreground="#CC5803" Margin="10" Height="40" TextAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" Background="#FFF8EB">Example Label</TextBox>
+                </Border>
+            </StackPanel>
+        </Border>
+
+        <WrapPanel Margin="10, 10, 0, 0" Width="auto" Orientation="Horizontal">
+            <Border BorderThickness="1" BorderBrush="#FFC971" Margin="10, 0, 10, 0">
+                <DockPanel Width="80" Height="80">
+                    <Label Style="{StaticResource ResourceKey=object_database_Label}">
+                        <Label.Background>
+                            <ImageBrush AlignmentX="Center" AlignmentY="Top"></ImageBrush>
+                        </Label.Background>
+                    </Label>
+                    <TextBlock Style="{StaticResource ResourceKey=object_database_TextBlock}">
+                        MySQL
+                    </TextBlock>
+                </DockPanel>
+            </Border>
+            <Border BorderThickness="1" BorderBrush="#FFC971" Margin="10, 0, 10, 0">
+                <DockPanel Width="80" Height="80">
+                    <Label Style="{StaticResource ResourceKey=object_database_Label}">
+                        <Label.Background>
+                            <ImageBrush AlignmentX="Center" AlignmentY="Top"></ImageBrush>
+                        </Label.Background>
+                    </Label>
+                    <TextBlock Style="{StaticResource ResourceKey=object_database_TextBlock}">
+                        MySQL
+                    </TextBlock>
+                </DockPanel>
+            </Border>
+        </WrapPanel>
+    </DockPanel>
 </Window>

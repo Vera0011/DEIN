@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:Estilos_de_Vera"
              StartupUri="./interfaces/MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="text">
+            <Setter Property="Control.Foreground" Value="#CC5803"/>
+            <Setter Property="Control.FontFamily" Value="Arial"/>
+        </Style>
+
     </Application.Resources>
 </Application>
