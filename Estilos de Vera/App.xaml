@@ -4,10 +4,50 @@
              xmlns:local="clr-namespace:Estilos_de_Vera"
              StartupUri="./interfaces/MainWindow.xaml">
     <Application.Resources>
-        <Style x:Key="text">
+        <!-- NAVBAR STYLES-->
+        <Style x:Key="navbar_border">
+            <Setter Property="Control.BorderThickness" Value="0, 0, 0, 1"/>
+            <Setter Property="Control.BorderBrush" Value="#FFC971"/>
+        </Style>
+        <Style x:Key="navbar_label">
+            <Setter Property="Control.Padding" Value="10"/>
+            <Setter Property="Control.BorderThickness" Value="0"/>
+            <Setter Property="Control.Height" Value="40"/>
+            <Setter Property="Label.VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Label.HorizontalContentAlignment" Value="Center"/>
             <Setter Property="Control.Foreground" Value="#CC5803"/>
             <Setter Property="Control.FontFamily" Value="Arial"/>
         </Style>
+        <Style x:Key="navbar_account_icon">
+            <Setter Property="Control.HorizontalAlignment" Value="Center"/>
+            <Setter Property="Control.VerticalAlignment" Value="Center"/>
+            <Setter Property="Control.Height" Value="30"/>
+            <Setter Property="DockPanel.Dock" Value="Left"/>
+        </Style>
 
+        <!-- NAVIGATION STYLES -->
+        <Style x:Key="navigation_border">
+            <Setter Property="Control.BorderThickness" Value="0, 0, 1, 0"/>
+            <Setter Property="Control.BorderBrush" Value="#FFC971"/>
+        </Style>
+        <Style x:Key="navigation_stackpanel">
+            <Setter Property="StackPanel.Orientation" Value="Vertical"/>
+            <Setter Property="DockPanel.Dock" Value="Left"/>
+            <Setter Property="Control.Width" Value="150"/>
+        </Style>
+        <Style x:Key="navigation_border_item">
+            <Setter Property="Control.BorderThickness" Value="0, 0, 0, 1"/>
+            <Setter Property="Control.BorderBrush" Value="#FFC971"/>
+            <Setter Property="Control.Background" Value="#FFF8EB"/>
+        </Style>
+        <Style x:Key="navigation_label_item">
+            <Setter Property="Control.Foreground" Value="#CC5803"/>
+            <Setter Property="Control.Margin" Value="10"/>
+            <Setter Property="Control.Height" Value="40"/>
+            <Setter Property="Control.HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="Control.VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Control.Background" Value="#FFF8EB"/>
+        </Style>
+        
     </Application.Resources>
 </Application>

@@ -116,7 +116,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="src\" />
+    <Resource Include="src\imgs\main\mongodb_logo.png" />
+    <Resource Include="src\imgs\main\mysql_logo.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="src\imgs\general\account_icon_default.png" />
+    <Resource Include="src\imgs\general\account_icon_hover.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
