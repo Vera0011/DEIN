@@ -1,0 +1,46 @@
+﻿<Window x:Class="Estilos_de_Vera.MongoDB"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Estilos_de_Vera"
+        mc:Ignorable="d"
+        Title="Database - MongoDB" Height="550" Width="800" WindowStartupLocation="CenterScreen" MinHeight="550" MinWidth="800">
+    <DockPanel LastChildFill="False">
+        <Border DockPanel.Dock="Top" Style="{StaticResource ResourceKey=navbar_border}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="1" Grid.Row="0" Style="{StaticResource ResourceKey=navbar_label}">Main</Label>
+                <Button Cursor="Hand" Click="sendToMainWindow"  Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Background="Transparent" BorderThickness="0">
+                    <Label Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Style="{StaticResource ResourceKey=navbar_label}">Logo</Label>
+                </Button>
+                <DockPanel Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right">
+                    <Image Style="{StaticResource ResourceKey=navbar_account_icon}">
+                        <Image.Source>
+                            <BitmapImage UriSource="../src/imgs/general/account_icon_default.png"></BitmapImage>
+                        </Image.Source>
+                    </Image>
+                    <Label DockPanel.Dock="Right" Style="{StaticResource ResourceKey=navbar_label}">
+                        User login
+                    </Label>
+                </DockPanel>
+            </Grid>
+        </Border>
+
+        <Border Style="{StaticResource ResourceKey=navigation_border}">
+            <StackPanel Style="{StaticResource ResourceKey=navigation_stackpanel}">
+                <Border Style="{StaticResource ResourceKey=navigation_border_item}">
+                    <Button Click="sendToMySQL" Style="{StaticResource ResourceKey=navigation_label_item}" Content="MySQL" BorderThickness="0" Cursor="Hand"/>
+                </Border>
+                <Border Style="{StaticResource ResourceKey=navigation_border_item}">
+                    <Button Style="{StaticResource ResourceKey=navigation_label_item}" Content="MySQL" BorderThickness="0"/>
+                </Border>
+            </StackPanel>
+        </Border>
+    </DockPanel>
+</Window>

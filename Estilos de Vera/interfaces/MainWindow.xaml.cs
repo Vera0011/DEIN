@@ -24,5 +24,21 @@ namespace Estilos_de_Vera
         {
             InitializeComponent();
         }
+
+        public void sendToMySQL(object sender, RoutedEventArgs args)
+        {
+            MySQL window = new MySQL();
+            this.Close();
+
+            window.Show();
+        }
+
+        public void sendToMongoDB(object sender, RoutedEventArgs args)
+        {
+            MongoDB window = new MongoDB();
+            this.Close();
+
+            window.Show();
+        }
     }
 }

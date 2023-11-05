@@ -62,38 +62,42 @@
         <Border Style="{StaticResource ResourceKey=navigation_border}">
             <StackPanel Style="{StaticResource ResourceKey=navigation_stackpanel}">
                 <Border Style="{StaticResource ResourceKey=navigation_border_item}">
-                    <Label Style="{StaticResource ResourceKey=navigation_label_item}" Content="MySQL"/>
+                    <Button Click="sendToMySQL" Style="{StaticResource ResourceKey=navigation_label_item}" Content="MySQL" BorderThickness="0" Cursor="Hand"/>
                 </Border>
                 <Border Style="{StaticResource ResourceKey=navigation_border_item}">
-                    <Label Style="{StaticResource ResourceKey=navigation_label_item}" Content="MongoDB"/>
+                    <Button Click="sendToMongoDB" Style="{StaticResource ResourceKey=navigation_label_item}" Content="MySQL" BorderThickness="0" Cursor="Hand"/>
                 </Border>
             </StackPanel>
         </Border>
 
         <WrapPanel Margin="10, 10, 0, 0" Width="auto" Orientation="Horizontal">
             <Border Style="{StaticResource ResourceKey=object_database_border}">
-                <DockPanel Style="{StaticResource ResourceKey=object_database_dockpanel}">
-                    <Image Style="{StaticResource ResourceKey=object_database_image}" Margin="2, 2, 2, 0">
-                        <Image.Source>
-                            <BitmapImage UriSource="../src/imgs/main/mysql_logo.png"></BitmapImage>
-                        </Image.Source>
-                    </Image>
-                    <Label Style="{StaticResource ResourceKey=object_database_label}">
-                        MySQL
-                    </Label>
+                <Button BorderThickness="0" Click="sendToMySQL" Background="Transparent" Cursor="Hand">
+                        <DockPanel Style="{StaticResource ResourceKey=object_database_dockpanel}">
+                            <Image Style="{StaticResource ResourceKey=object_database_image}" Margin="2, 2, 2, 0">
+                            <Image.Source>
+                                <BitmapImage UriSource="../src/imgs/main/mysql_logo.png"></BitmapImage>
+                            </Image.Source>
+                        </Image>
+                        <Label Style="{StaticResource ResourceKey=object_database_label}">
+                            MySQL
+                        </Label>
                 </DockPanel>
+                </Button>
             </Border>
             <Border Style="{StaticResource ResourceKey=object_database_border}">
-                <DockPanel Style="{StaticResource ResourceKey=object_database_dockpanel}">
-                    <Image Style="{StaticResource ResourceKey=object_database_image}" Margin="2, 2, 2, 0">
-                        <Image.Source>
-                            <BitmapImage UriSource="../src/imgs/main/mongodb_logo.png"></BitmapImage>
-                        </Image.Source>
-                    </Image>
-                    <Label Style="{StaticResource ResourceKey=object_database_label}">
-                        <Run Language="es-es" Text="MongoDB"/>
-                    </Label>
-                </DockPanel>
+                <Button BorderThickness="0" Click="sendToMySQL" Background="Transparent" Cursor="Hand">
+                    <DockPanel Style="{StaticResource ResourceKey=object_database_dockpanel}">
+                        <Image Style="{StaticResource ResourceKey=object_database_image}" Margin="2, 2, 2, 0">
+                            <Image.Source>
+                                <BitmapImage UriSource="../src/imgs/main/mongodb_logo.png"></BitmapImage>
+                            </Image.Source>
+                        </Image>
+                        <Label Style="{StaticResource ResourceKey=object_database_label}">
+                            <Run Language="es-es" Text="MongoDB"/>
+                        </Label>
+                    </DockPanel>
+                </Button>
             </Border>
         </WrapPanel>
     </DockPanel>

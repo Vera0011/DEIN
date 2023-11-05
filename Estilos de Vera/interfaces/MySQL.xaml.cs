@@ -17,11 +17,27 @@ namespace Estilos_de_Vera
     /// <summary>
     /// Lógica de interacción para Window1.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class MySQL : Window
     {
-        public Window1()
+        public MySQL()
         {
             InitializeComponent();
+        }
+
+        public void sendToMongoDB(object sender, RoutedEventArgs args)
+        {
+            MongoDB window = new MongoDB();
+            this.Close();
+
+            window.Show();
+        }
+
+        public void sendToMainWindow(object sender, RoutedEventArgs args)
+        {
+            MainWindow window = new MainWindow();
+            this.Close();
+
+            window.Show();
         }
     }
 }
