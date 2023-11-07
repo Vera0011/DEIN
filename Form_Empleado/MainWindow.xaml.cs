@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,5 +25,30 @@ namespace Form_Empleado
         {
             InitializeComponent();
         }
+
+        public void uploadImage(object sender, RoutedEventArgs args)
+        {
+            OpenFileDialog op = new OpenFileDialog();
+            op.Title = "Select a picture";
+            op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
+              "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
+              "Portable Network Graphic (*.png)|*.png";
+
+            if (op.ShowDialog() == true)
+            {
+                imageUploaded.Source = new BitmapImage(new Uri(op.FileName));
+            }
+        }
+
+        public void appendData(object sender, RoutedEventArgs args)
+        {
+
+        }
+    }
+
+    public class User
+    {
+
+
     }
 }
