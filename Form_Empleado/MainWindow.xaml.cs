@@ -42,13 +42,44 @@ namespace Form_Empleado
 
         public void appendData(object sender, RoutedEventArgs args)
         {
+            object[] values = { this.FindName("name"), this.FindName("surname"), this.FindName("email"), this.FindName("phone") };
+            bool status = true;
 
+            for (int i = 0; i < values.Length; i++)
+            {
+                if (string.IsNullOrEmpty(((TextBox)values[i]).Text)) { status = false; break; };
+            }
+
+            if (status)
+            {
+                ((DataGrid)this.FindName("dataGrid")).Items.Add(new User() { name = ((TextBox)values[0]).Text, surname = ((TextBox)values[1]).Text, email = ((TextBox)values[2]).Text, phone = ((TextBox)values[3]).Text };);
+            }
+        }
+
+        public void clearInput(object sender, RoutedEventArgs args)
+        {
+            ((TextBox)sender).Text = "";
+        }
+
+        public void fillInput(object sender, RoutedEventArgs args)
+        {
+            TextBox text = (TextBox)sender;
+
+            if (string.IsNullOrWhiteSpace(text.Text)) text.Text = text.Name.Replace('_', ' ');
+        }
+
+        public void closeAndOpen(object sender, RoutedEventArgs args)
+        {
+            new MainWindow().Show();
+            this.Close();
         }
     }
 
     public class User
     {
-
-
+        public string name { get; set; }
+        public string surname { get; set; }
+        public string email { get; set; }
+        public string phone { get; set; }
     }
 }
