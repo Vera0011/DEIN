@@ -5,8 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Orla"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Orla: Vera" Height="800" MaxHeight="1920" MaxWidth="1080" Background="#F49d6E" Width="600" MinHeight="600">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical">
+            <Viewbox Height="20" MaxWidth="100" StretchDirection="DownOnly">
+                <TextBlock Text="Aritz P" FontStretch="Expanded" x:Name="LabelPuesto41" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Viewbox>
+            <Button UseLayoutRounding="True" x:Name="Persona41" Margin="15, 15, 15, 0" BorderThickness="0" Height="40" Width="40">
+                <Button.OpacityMask>
+                    <ImageBrush ImageSource=""></ImageBrush>
+                </Button.OpacityMask>
+                <Button.Background>
+                    <ImageBrush Stretch="UniformToFill" ImageSource=""></ImageBrush>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+        <Image Grid.Row="2" Grid.Column="1" Source="" Margin="15"/>
     </Grid>
 </Window>
