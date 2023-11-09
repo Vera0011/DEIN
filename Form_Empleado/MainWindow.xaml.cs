@@ -52,7 +52,7 @@ namespace Form_Empleado
 
             if (status)
             {
-                ((DataGrid)this.FindName("dataGrid")).Items.Add(new User() { name = ((TextBox)values[0]).Text, surname = ((TextBox)values[1]).Text, email = ((TextBox)values[2]).Text, phone = ((TextBox)values[3]).Text };);
+                ((DataGrid)this.FindName("dataGrid")).Items.Add(new User() { name = ((TextBox)values[0]).Text, surname = ((TextBox)values[1]).Text, email = ((TextBox)values[2]).Text, phone = ((TextBox)values[3]).Text });
             }
         }
 
