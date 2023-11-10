@@ -43,11 +43,17 @@ namespace Form_Empleado
         public void appendData(object sender, RoutedEventArgs args)
         {
             object[] values = { this.FindName("name"), this.FindName("surname"), this.FindName("email"), this.FindName("phone") };
+            object[] fields = { "Nombre", "Apellidos", "E-Mail", "Teléfono" };
             bool status = true;
+            
 
             for (int i = 0; i < values.Length; i++)
             {
-                if (string.IsNullOrEmpty(((TextBox)values[i]).Text)) { status = false; break; };
+                if (string.IsNullOrEmpty(((TextBox)values[i]).Text)) { 
+                    status = false;
+                    MessageBox.Show("Field " + fields[i] + " is required");
+                    break;
+                };
             }
 
             if (status)
