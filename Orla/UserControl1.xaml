@@ -22,7 +22,7 @@
         </Viewbox>
         <Button x:Name="Persona" Grid.Row="1" Grid.Column="0" Margin="15, 15, 15, 0" BorderThickness="0" MouseEnter="Persona_MouseEnter" MouseLeave="Persona_MouseLeave" Click="Persona_Click" MouseDoubleClick="Persona_MouseDoubleClick">
             <Button.OpacityMask>
-                <ImageBrush ImageSource="E:\DEIN\DEIN_REPO\Orla\src\user.jpg" Stretch="Uniform"/>
+                <ImageBrush ImageSource="src/user.jpg" Stretch="Uniform"/>
             </Button.OpacityMask>
             <Button.Background>
                 <ImageBrush ImageSource="{Binding Foto, ElementName=root}"></ImageBrush>
