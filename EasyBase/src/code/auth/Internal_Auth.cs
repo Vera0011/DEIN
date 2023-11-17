@@ -8,5 +8,9 @@ namespace EasyBase.src.code.auth
 {
     class Internal_Auth
     {
+        string email = "vera_prueba";
+        string password = "1234";
+
+
     }
 }

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace EasyBase.src.code.database
 {
-    class Database_Queries
+    class API_Queries
     {
+
     }
 }

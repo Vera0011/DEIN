@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EasyBase.src.code.database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace EasyBase.src.ui.windows
         public Login()
         {
             InitializeComponent();
+            new API_Connection();
         }
     }
 }
