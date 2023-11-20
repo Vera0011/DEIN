@@ -3,10 +3,63 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:EasyBase.src.ui.windows"
+        xmlns:local="clr-namespace:EasyBase.src.ui.micro_components"
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="800">
+        Title="Login - EasyBase" Height="450" Width="800" Background="#FFF8EB">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+
+        <Grid Margin="50, 80, 50, 20" Background="#E2711D" Grid.Row="0" Width="500">
+            <Grid.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock FontFamily="Source Sans 3" Grid.Row="0" Text="LOG IN" TextAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+            <local:defaultInput Margin="50, 10" Grid.Row="1" x:Name="email_input" Input_Name="email_input"/>
+            <local:defaultInput Margin="50, 10" Grid.Row="2" x:Name="password_input" Input_Name="password_input"/>
+            <StackPanel  Margin="50, 10" Orientation="Horizontal" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left">
+                <Label Content="Remember me:" Margin="0,5, 5, 5" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Setter Property="FontFamily" Value="Source Sans 3"/>
+                            <Setter Property="FontSize" Value="20"/>
+                        </Style>
+                    </Label.Style>
+                </Label>
+                <CheckBox VerticalContentAlignment="Center" VerticalAlignment="Center" x:Name="checkbox_remember">
+                    <CheckBox.Style>
+                        <Style TargetType="CheckBox">
+                            <Setter Property="BorderBrush" Value="#FFF8EB"/>
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter Property="Background" Value="#FFF8EB"/>
+                                    <Setter Property="Foreground" Value="Transparent"/>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Cursor" Value="Hand"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </CheckBox.Style>
+                </CheckBox>
+            </StackPanel>
+
+        </Grid>
+        <local:defaultButton Grid.Row="1" Cursor="Hand" x:Name="submit_login" Text="Login"/>
     </Grid>
 </Window>
