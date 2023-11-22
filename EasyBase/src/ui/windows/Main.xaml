@@ -3,10 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:EasyBase.src.ui.windows"
+        xmlns:local="clr-namespace:EasyBase.src.ui.components"
         mc:Ignorable="d"
         Title="EasyBase" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <DockPanel LastChildFill="False">
+        <local:Navigation_Top DockPanel.Dock="Top"/>
+
+        <local:Navigation_Left/>
+
+        <WrapPanel Margin="10, 10, 0, 0" Width="auto" Orientation="Horizontal" Initialized="get_databases">
+            <!--<local:Wrap_Databases_Main Text="TestData" Image="./src/x/y.png"/>-->
+        </WrapPanel>
+    </DockPanel>
 </Window>

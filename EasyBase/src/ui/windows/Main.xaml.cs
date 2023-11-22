@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EasyBase.src.code;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,12 @@ namespace EasyBase.src.ui.windows
         public Main()
         {
             InitializeComponent();
+            WindowDictionary.addWindow(this);
+        }
+
+        public void get_databases(object sender, EventArgs args)
+        {
+
         }
     }
 }

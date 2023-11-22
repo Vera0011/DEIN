@@ -6,6 +6,40 @@
         xmlns:local="clr-namespace:EasyBase.src.ui.micro_components"
         mc:Ignorable="d"
         Title="Login - EasyBase" Height="450" Width="800" Background="#FFF8EB">
+    <Window.Resources>
+        <Style x:Key="input_login_style" TargetType="TextBox">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border x:Name="border" CornerRadius="10" BorderThickness="0, 0, 0, 2" BorderBrush="#DCDCDC" Background="#CC5803">
+                            <ScrollViewer x:Name="PART_ContentHost" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Control.Background" Value="#E2711D"/>
+                                <Setter TargetName="border" Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="False">
+                                <Setter TargetName="border" Property="Control.Background" Value="#CC5803"/>
+                            </Trigger>
+                            <Trigger Property="IsSelectionActive" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FFF8EB"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="#FFC971"/>
+                                <Setter TargetName="border" Property="Cursor" Value="None"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="10, 5, 10, 5"/>
+            <Setter Property="Foreground" Value="#DCDCDC"/>
+            <Setter Property="FontFamily" Value="Source Sans 3"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -29,8 +63,9 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock FontFamily="Source Sans 3" Grid.Row="0" Text="LOG IN" TextAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
-            <local:defaultInput Margin="50, 10" Grid.Row="1" x:Name="email_input" Input_Name="email_input"/>
-            <local:defaultInput Margin="50, 10" Grid.Row="2" x:Name="password_input" Input_Name="password_input"/>
+
+            <TextBox Style="{StaticResource input_login_style}" Text="Email" Margin="50, 10" Grid.Row="1" x:Name="email_input" LostFocus="AddDefaultText" GotFocus="RemoveDefaultText"/>
+            <TextBox Style="{StaticResource input_login_style}" Text="Password" Margin="50, 10" Grid.Row="2" x:Name="password_input" LostFocus="AddDefaultText" GotFocus="RemoveDefaultText"/>
             <StackPanel  Margin="50, 10" Orientation="Horizontal" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left">
                 <Label Content="Remember me:" Margin="0,5, 5, 5" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center">
                     <Label.Style>

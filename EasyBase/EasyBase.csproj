@@ -94,11 +94,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="src\ui\micro_components\defaultButton.xaml">
+    <Page Include="src\ui\components\Wrap_Databases_Main.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="src\ui\micro_components\defaultInput.xaml">
+    <Page Include="src\ui\micro_components\defaultButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -124,11 +124,11 @@
     <Compile Include="src\ui\components\Navigation_Top.xaml.cs">
       <DependentUpon>Navigation_Top.xaml</DependentUpon>
     </Compile>
+    <Compile Include="src\ui\components\Wrap_Databases_Main.xaml.cs">
+      <DependentUpon>Wrap_Databases_Main.xaml</DependentUpon>
+    </Compile>
     <Compile Include="src\ui\micro_components\defaultButton.xaml.cs">
       <DependentUpon>defaultButton.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="src\ui\micro_components\defaultInput.xaml.cs">
-      <DependentUpon>defaultInput.xaml</DependentUpon>
     </Compile>
     <Compile Include="src\ui\windows\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -167,6 +167,24 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\ui\imgs\mongo_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\ui\imgs\right_arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\ui\imgs\sign_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\ui\imgs\up_arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\ui\imgs\left_arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\ui\imgs\down_arrow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

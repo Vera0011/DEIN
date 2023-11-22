@@ -3,10 +3,115 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:EasyBase.src.ui.components"
+             xmlns:local="clr-namespace:EasyBase.src.ui.micro_components"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style x:Key="content_button" TargetType="{x:Type Label}">
+            <Setter Property="Foreground" Value="#CC5803"/>
+            <Setter Property="FontFamily" Value="Source Sans 3"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
-            
+        <Border BorderThickness="0, 0, 0, 1" BorderBrush="#FFC971">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button  Grid.Column="1" Padding="10" Grid.Row="0" HorizontalAlignment="Center" Foreground="#CC5803" VerticalContentAlignment="Center" Height="40" Content="{Binding Text, RelativeSource={RelativeSource AncestorType=UserControl}}" >
+                    <Button.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="OverridesDefaultStyle" Value="True"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border x:Name="border_button" BorderThickness="0" BorderBrush="#FF9505">
+                                            <ContentPresenter HorizontalAlignment="Center" x:Name="button_content" VerticalAlignment="Center">
+                                                <ContentPresenter.ContentTemplate>
+                                                    <DataTemplate>
+                                                        <Label Content="Main" Style="{StaticResource content_button}"/>
+                                                    </DataTemplate>
+                                                </ContentPresenter.ContentTemplate>
+                                            </ContentPresenter>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Cursor" Value="Hand"/>
+                                            </Trigger>
+                                            <Trigger Property="IsMouseOver" Value="False">
+                                                <Setter Property="Cursor" Value="Arrow"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Grid.Column="0" Padding="10" Grid.Row="0" HorizontalAlignment="Left" Foreground="#CC5803" VerticalContentAlignment="Center" Height="40" Content="{Binding Text, RelativeSource={RelativeSource AncestorType=UserControl}}" >
+                    <Button.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="OverridesDefaultStyle" Value="True"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border x:Name="border_button" BorderThickness="0" BorderBrush="#FF9505">
+                                            <ContentPresenter HorizontalAlignment="Center" x:Name="button_content" VerticalAlignment="Center">
+                                                <ContentPresenter.ContentTemplate>
+                                                    <DataTemplate>
+                                                        <Label Content="Logo" Style="{StaticResource content_button}"/>
+                                                    </DataTemplate>
+                                                </ContentPresenter.ContentTemplate>
+                                            </ContentPresenter>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Cursor" Value="Hand"/>
+                                            </Trigger>
+                                            <Trigger Property="IsMouseOver" Value="False">
+                                                <Setter Property="Cursor" Value="Arrow"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Grid.Column="2" Padding="10" Grid.Row="0" HorizontalAlignment="Right" Foreground="#CC5803" VerticalContentAlignment="Center" Height="40" Content="{Binding Text, RelativeSource={RelativeSource AncestorType=UserControl}}" >
+                    <Button.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="OverridesDefaultStyle" Value="True"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border x:Name="border_button" BorderThickness="0" BorderBrush="#FF9505">
+                                            <ContentPresenter HorizontalAlignment="Center" x:Name="button_content" VerticalAlignment="Center">
+                                                <ContentPresenter.ContentTemplate>
+                                                    <DataTemplate>
+                                                        <Label Content="User login" Style="{StaticResource content_button}"/>
+                                                    </DataTemplate>
+                                                </ContentPresenter.ContentTemplate>
+                                            </ContentPresenter>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Cursor" Value="Hand"/>
+                                            </Trigger>
+                                            <Trigger Property="IsMouseOver" Value="False">
+                                                <Setter Property="Cursor" Value="Arrow"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+        </Border>
     </Grid>
 </UserControl>

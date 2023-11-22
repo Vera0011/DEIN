@@ -26,5 +26,10 @@ namespace EasyBase.src.code
         {
             return windowDictionary;
         }
+
+        public static object getWindow(object obj)
+        {
+            return windowDictionary[windowDictionary.IndexOf(obj)];
+        }
     }
 }

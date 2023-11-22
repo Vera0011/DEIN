@@ -6,7 +6,80 @@
              xmlns:local="clr-namespace:EasyBase.src.ui.components"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style x:Key="main_field">
+
+        </Style>
+        <Style x:Key="option_field">
+
+        </Style>
+    </UserControl.Resources>
     <Grid>
-            
+        <Border BorderThickness="0, 0, 1, 0" BorderBrush="#FFC971">
+            <Grid DockPanel.Dock="Left">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid Width="auto">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Button VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="0" BorderThickness="0, 0, 0, 1" BorderBrush="#FFC971" Background="#FFF8EB" Cursor="Hand" Click="change_button_states">
+                        <Grid VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Foreground="#CC5803" Margin="10" Height="40" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Content="MongoDB"/>
+                            <Image Grid.Column="1" Source="../imgs/down_arrow.png" VerticalAlignment="Center" Margin="10"/>
+                        </Grid>
+                    </Button>
+                    <Button VerticalContentAlignment="Center" HorizontalContentAlignment="Center" x:Name="export_button" Visibility="Collapsed" Grid.Row="1" BorderThickness="0, 0, 0, 1" BorderBrush="#FFC971" Background="#FFFFFF" Cursor="Hand" Click="navigate_to_export">
+                        <Grid VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Foreground="#CC5803" Margin="10" Height="40" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Export"/>
+                            <Image Grid.Column="1" Source="../imgs/right_arrow.png" VerticalAlignment="Center" Margin="10"/>
+                        </Grid>
+                    </Button>
+                    <Button VerticalContentAlignment="Center" HorizontalContentAlignment="Center" x:Name="access_button" Visibility="Collapsed" Grid.Row="2" BorderThickness="0, 0, 0, 1" BorderBrush="#FFC971" Background="#FFFFFF" Cursor="Hand" Click="navigate_to_access">
+                        <Grid VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Foreground="#CC5803" Margin="10" Height="40" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Access"/>
+                            <Image Grid.Column="1" Source="../imgs/right_arrow.png" VerticalAlignment="Center" Margin="10"/>
+                        </Grid>
+                    </Button>
+                    <Button VerticalContentAlignment="Center" HorizontalContentAlignment="Center" x:Name="manage_button" Visibility="Collapsed" Grid.Row="3" BorderThickness="0, 0, 0, 1" BorderBrush="#FFC971" Background="#FFFFFF" Cursor="Hand" Click="navigate_to_manage">
+                        <Grid VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Foreground="#CC5803" Margin="10" Height="40" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Manage"/>
+                            <Image Grid.Column="1" Source="../imgs/right_arrow.png" VerticalAlignment="Center" Margin="10"/>
+                        </Grid>
+                    </Button>
+                </Grid>
+                <Button VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="1" BorderThickness="0, 0, 0, 1" BorderBrush="#FFC971" Background="#FFF8EB" Cursor="Hand">
+                    <Grid VerticalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Foreground="#CC5803" Margin="10" Height="40" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Log out"/>
+                        <Image Grid.Column="1" Source="../imgs/sign_out.png" VerticalAlignment="Center" Margin="10"/>
+                    </Grid>
+                </Button>
+            </Grid>
+        </Border>
     </Grid>
 </UserControl>

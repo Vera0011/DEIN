@@ -31,17 +31,15 @@ namespace EasyBase.src.ui.windows
         public void Validate_Credentials(object sender, RoutedEventArgs e)
         {
             /* VALIDATION OF EMAIL AND PASSWORD -> DEACTIVATED FOR FURTHER UPDATES */
-            Console.WriteLine(string.IsNullOrWhiteSpace(email_input.Text));
-            Console.WriteLine(string.IsNullOrWhiteSpace(password_input.Text));
-            Console.WriteLine(email_input.Text == "Email");
-            Console.WriteLine(password_input.Text == "Password");
             if (string.IsNullOrWhiteSpace(email_input.Text) || string.IsNullOrWhiteSpace(password_input.Text) || email_input.Text == "Email" || password_input.Text == "Password")
             {
                 MessageBox.Show("Email and password are required");
             }
-            else new Internal_Code(email_input.Text, password_input.Text, checkbox_remember.IsChecked);
-
-            this.changeWindow();
+            else
+            {
+                this.changeWindow();
+                //new Internal_Code(email_input.Text, password_input.Text, checkbox_remember.IsChecked);
+            }
         }
 
         public void changeWindow()
@@ -49,6 +47,27 @@ namespace EasyBase.src.ui.windows
             Main window = new Main();
             this.Close();
             window.Show();
+        }
+
+        private void RemoveDefaultText(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+
+            if (textBox.Text.Equals("Password") || textBox.Text.Equals("Email"))
+            {
+                textBox.Text = "";
+            }
+        }
+
+        private void AddDefaultText(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+
+            if (string.IsNullOrWhiteSpace(textBox.Text))
+            {
+                if (email_input.Equals(textBox)) textBox.Text = "Email";
+                else if (password_input.Equals(textBox)) textBox.Text = "Password";
+            }
         }
     }
 }

@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace EasyBase.src.ui.components
 {
@@ -23,6 +11,32 @@ namespace EasyBase.src.ui.components
         public Navigation_Left()
         {
             InitializeComponent();
+        }
+        
+        public void change_button_states(object sender, RoutedEventArgs args)
+        {
+            Button[] buttons = { manage_button, access_button, export_button};
+
+            foreach (Button button in buttons)
+            {
+                if (button.IsVisible) button.Visibility = Visibility.Collapsed;
+                else button.Visibility = Visibility.Visible;
+            }
+        }
+
+        public void navigate_to_manage(object sender, RoutedEventArgs args)
+        {
+
+        }
+
+        public void navigate_to_export(object sender, RoutedEventArgs args)
+        {
+
+        }
+
+        public void navigate_to_access(object sender, RoutedEventArgs args)
+        {
+
         }
     }
 }
