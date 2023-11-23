@@ -26,6 +26,7 @@ namespace EasyBase.src.ui.windows
         {
             InitializeComponent();
             WindowDictionary.addWindow(this);
+            this.Activate();
         }
 
         public void Validate_Credentials(object sender, RoutedEventArgs e)
@@ -45,7 +46,7 @@ namespace EasyBase.src.ui.windows
         public void changeWindow()
         {
             Main window = new Main();
-            this.Close();
+            this.Visibility = Visibility.Hidden;
             window.Show();
         }
 
@@ -68,6 +69,11 @@ namespace EasyBase.src.ui.windows
                 if (email_input.Equals(textBox)) textBox.Text = "Email";
                 else if (password_input.Equals(textBox)) textBox.Text = "Password";
             }
+        }
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            this.Visibility = Visibility.Hidden;
         }
     }
 }

@@ -19,10 +19,12 @@
             <Grid DockPanel.Dock="Left">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
+                    <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Grid Width="auto">
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
@@ -35,7 +37,7 @@
                                 <ColumnDefinition Width="auto"/>
                             </Grid.ColumnDefinitions>
                             <Label Foreground="#CC5803" Margin="10" Height="40" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Content="MongoDB"/>
-                            <Image Grid.Column="1" Source="../imgs/down_arrow.png" VerticalAlignment="Center" Margin="10"/>
+                            <Image x:Name="main_button_image" Grid.Column="1" Source="../imgs/down_arrow.png" VerticalAlignment="Center" Margin="10"/>
                         </Grid>
                     </Button>
                     <Button VerticalContentAlignment="Center" HorizontalContentAlignment="Center" x:Name="export_button" Visibility="Collapsed" Grid.Row="1" BorderThickness="0, 0, 0, 1" BorderBrush="#FFC971" Background="#FFFFFF" Cursor="Hand" Click="navigate_to_export">
@@ -68,8 +70,18 @@
                             <Image Grid.Column="1" Source="../imgs/right_arrow.png" VerticalAlignment="Center" Margin="10"/>
                         </Grid>
                     </Button>
+                    <Button VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="4" BorderThickness="0, 0, 0, 1" BorderBrush="#FFC971" Background="#FFF8EB" Cursor="Hand">
+                        <Grid VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Foreground="#CC5803" Margin="10" Height="40" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Content="New Instance"/>
+                            <Image Grid.Column="1" Source="../imgs/add_icon.png" VerticalAlignment="Center" Margin="10"/>
+                        </Grid>
+                    </Button>
                 </Grid>
-                <Button VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="1" BorderThickness="0, 0, 0, 1" BorderBrush="#FFC971" Background="#FFF8EB" Cursor="Hand">
+                <Button VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="2" BorderThickness="0, 0, 0, 1" BorderBrush="#FFC971" Background="#FFF8EB" Cursor="Hand" Click="navigate_to_login">
                     <Grid VerticalAlignment="Center">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>

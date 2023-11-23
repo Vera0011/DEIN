@@ -21,7 +21,7 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button  Grid.Column="1" Padding="10" Grid.Row="0" HorizontalAlignment="Center" Foreground="#CC5803" VerticalContentAlignment="Center" Height="40" Content="{Binding Text, RelativeSource={RelativeSource AncestorType=UserControl}}" >
+                <Button Grid.Column="1" Padding="10" Grid.Row="0" HorizontalAlignment="Center" Foreground="#CC5803" VerticalContentAlignment="Center" Height="40" Click="navigate_to_main">
                     <Button.Resources>
                         <Style TargetType="Button">
                             <Setter Property="OverridesDefaultStyle" Value="True"/>
@@ -51,7 +51,7 @@
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button Grid.Column="0" Padding="10" Grid.Row="0" HorizontalAlignment="Left" Foreground="#CC5803" VerticalContentAlignment="Center" Height="40" Content="{Binding Text, RelativeSource={RelativeSource AncestorType=UserControl}}" >
+                <Button Grid.Column="0" Padding="10" Grid.Row="0" HorizontalAlignment="Left" Foreground="#CC5803" VerticalContentAlignment="Center" Height="40" Click="navigate_to_main">
                     <Button.Resources>
                         <Style TargetType="Button">
                             <Setter Property="OverridesDefaultStyle" Value="True"/>
@@ -62,7 +62,7 @@
                                             <ContentPresenter HorizontalAlignment="Center" x:Name="button_content" VerticalAlignment="Center">
                                                 <ContentPresenter.ContentTemplate>
                                                     <DataTemplate>
-                                                        <Label Content="Logo" Style="{StaticResource content_button}"/>
+                                                        <Image Source="../imgs/logo.png" Width="120" Height="120"/>
                                                     </DataTemplate>
                                                 </ContentPresenter.ContentTemplate>
                                             </ContentPresenter>
@@ -81,7 +81,7 @@
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button Grid.Column="2" Padding="10" Grid.Row="0" HorizontalAlignment="Right" Foreground="#CC5803" VerticalContentAlignment="Center" Height="40" Content="{Binding Text, RelativeSource={RelativeSource AncestorType=UserControl}}" >
+                <Button Grid.Column="2" Padding="10" Grid.Row="0" HorizontalAlignment="Right" Foreground="#CC5803" VerticalContentAlignment="Center" Height="40" Click="navigate_to_user_profile">
                     <Button.Resources>
                         <Style TargetType="Button">
                             <Setter Property="OverridesDefaultStyle" Value="True"/>

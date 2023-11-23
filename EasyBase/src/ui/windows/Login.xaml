@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EasyBase.src.ui.micro_components"
         mc:Ignorable="d"
-        Title="Login - EasyBase" Height="450" Width="800" Background="#FFF8EB">
+        Title="Login - EasyBase" Height="450" Width="800" Background="#FFF8EB" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.Resources>
         <Style x:Key="input_login_style" TargetType="TextBox">
             <Setter Property="OverridesDefaultStyle" Value="True"/>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EasyBase.src.code;
+using EasyBase.src.ui.windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,42 @@ namespace EasyBase.src.ui.components
         public Navigation_Top()
         {
             InitializeComponent();
+        }
+
+        public void navigate_to_main(object sender, RoutedEventArgs args)
+        {
+            Main windowMain = (Main)WindowDictionary.getWindow(typeof(Main));
+
+            if(this.getActualWindow().GetType() != typeof(Main))
+            {
+                if (windowMain == null) new Main().Show();
+                else windowMain.Visibility = Visibility.Visible;
+            }
+        }
+
+        public void navigate_to_user_profile(object sender, RoutedEventArgs args)
+        {
+            User_Profile windowUser = (User_Profile)WindowDictionary.getWindow(typeof(User_Profile));
+
+            if (this.getActualWindow().GetType() != typeof(User_Profile))
+            {
+                if (windowUser == null) new User_Profile().Show();
+                else windowUser.Visibility = Visibility.Visible;
+            }
+
+            this.getActualWindow().Visibility = Visibility.Hidden;
+        }
+
+        private Window getActualWindow()
+        {
+            DependencyObject parent = this;
+
+            while (parent != null && !(parent is Window))
+            {
+                parent = VisualTreeHelper.GetParent(parent);
+            }
+
+            return (Window)parent;
         }
     }
 }

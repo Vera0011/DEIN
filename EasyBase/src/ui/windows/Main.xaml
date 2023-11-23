@@ -5,14 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EasyBase.src.ui.components"
         mc:Ignorable="d"
-        Title="EasyBase" Height="450" Width="800">
+        Title="EasyBase" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <DockPanel LastChildFill="False">
         <local:Navigation_Top DockPanel.Dock="Top"/>
 
         <local:Navigation_Left/>
 
         <WrapPanel Margin="10, 10, 0, 0" Width="auto" Orientation="Horizontal" Initialized="get_databases">
-            <!--<local:Wrap_Databases_Main Text="TestData" Image="./src/x/y.png"/>-->
+            <Border BorderThickness="1" BorderBrush="#FFC971">
+                <Button Background="Transparent" BorderThickness="0" Padding="0" Cursor="Hand" Click="go_to_database">
+                    <DockPanel Width="90" Height="90">
+                        <Label Width="50" Height="50" DockPanel.Dock="Top" Margin="5">
+                            <Label.Background>
+                                <ImageBrush AlignmentX="Center" AlignmentY="Top" ImageSource="../imgs/mongo_logo.png" x:Name="Image_Item"/>
+                            </Label.Background>
+                        </Label>
+                        <Label Margin="0" BorderBrush="#FFC971" Foreground="#CC5803" DockPanel.Dock="Bottom" HorizontalContentAlignment="Center" BorderThickness="0, 1, 0, 0" Content="MongoDB" x:Name="Text_Item"/>
+                    </DockPanel>
+                </Button>
+            </Border>
         </WrapPanel>
     </DockPanel>
 </Window>

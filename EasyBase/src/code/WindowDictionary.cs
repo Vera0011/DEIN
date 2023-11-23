@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EasyBase.src.ui.windows;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,9 +28,17 @@ namespace EasyBase.src.code
             return windowDictionary;
         }
 
-        public static object getWindow(object obj)
+        public static object getWindow(Type WindowSearched)
         {
-            return windowDictionary[windowDictionary.IndexOf(obj)];
+            foreach (object window in windowDictionary)
+            {
+                if (window.GetType() == WindowSearched)
+                {
+                    return window;
+                }
+            }
+
+            return null;
         }
     }
 }

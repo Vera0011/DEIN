@@ -11,33 +11,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace EasyBase.src.ui.windows
 {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// Lógica de interacción para Database_Window.xaml
     /// </summary>
-    public partial class Main : Window
+    public partial class Database_Window : Window
     {
-        public Main()
+        public Database_Window()
         {
             InitializeComponent();
             WindowDictionary.addWindow(this);
             this.Activate();
-        }
-
-        /* Get all databases from user -> DEACTIVATED FOR FURTHER UPDATES */
-        public void get_databases(object sender, EventArgs args)
-        {
-
-        }
-
-        public void go_to_database(object sender, EventArgs args)
-        {
-            new Database_Window().Show();
-            this.Visibility = Visibility.Hidden;
         }
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
