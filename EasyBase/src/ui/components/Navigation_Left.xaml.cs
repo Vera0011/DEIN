@@ -17,17 +17,17 @@ namespace EasyBase.src.ui.components
         {
             InitializeComponent();
         }
-        
+
         public void change_button_states(object sender, RoutedEventArgs args)
         {
-            Button[] buttons = { manage_button, access_button, export_button};
+            Button[] buttons = { manage_button, access_button, export_button };
 
             foreach (Button button in buttons)
             {
                 if (button.IsVisible) button.Visibility = Visibility.Collapsed;
                 else button.Visibility = Visibility.Visible;
 
-                if(main_button_image.Source.ToString().Contains("down_arrow")) main_button_image.Source = new BitmapImage(new Uri(string.Format(@"../imgs/up_arrow.png"), UriKind.Relative));
+                if (main_button_image.Source.ToString().Contains("down_arrow")) main_button_image.Source = new BitmapImage(new Uri(string.Format(@"../imgs/up_arrow.png"), UriKind.Relative));
                 else main_button_image.Source = new BitmapImage(new Uri(string.Format(@"../imgs/down_arrow.png"), UriKind.Relative));
             }
         }
@@ -36,22 +36,14 @@ namespace EasyBase.src.ui.components
         {
             Manage_Window windowManage = (Manage_Window)WindowDictionary.getWindow(typeof(Manage_Window));
 
-            if (this.getActualWindow().GetType() != typeof(Manage_Window))
-            {
-                if (windowManage == null) new Manage_Window().Show();
-                else windowManage.Visibility = Visibility.Visible;
-            }
+            if (this.getActualWindow().GetType() != typeof(Manage_Window)) windowManage.Visibility = Visibility.Visible;
         }
 
         public void navigate_to_export(object sender, RoutedEventArgs args)
         {
             Export_Window windowExport = (Export_Window)WindowDictionary.getWindow(typeof(Export_Window));
 
-            if (this.getActualWindow().GetType() != typeof(Export_Window))
-            {
-                if (windowExport == null) new Export_Window().Show();
-                else windowExport.Visibility = Visibility.Visible;
-            }
+            if (this.getActualWindow().GetType() != typeof(Export_Window)) windowExport.Visibility = Visibility.Visible;
         }
 
         public void navigate_to_access(object sender, RoutedEventArgs args)
@@ -60,9 +52,7 @@ namespace EasyBase.src.ui.components
 
             if (this.getActualWindow().GetType() != typeof(Database_Window))
             {
-                if (windowDatabase == null) new Database_Window().Show();
-                else windowDatabase.Visibility = Visibility.Visible;
-
+                windowDatabase.Visibility = Visibility.Visible;
                 this.getActualWindow().Visibility = Visibility.Hidden;
             }
         }
@@ -73,9 +63,7 @@ namespace EasyBase.src.ui.components
 
             if (this.getActualWindow().GetType() != typeof(Login))
             {
-                if (windowLogin == null) new Login().Show();
-                else windowLogin.Visibility = Visibility.Visible;
-
+                windowLogin.Visibility = Visibility.Visible;
                 this.getActualWindow().Visibility = Visibility.Hidden;
             }
         }

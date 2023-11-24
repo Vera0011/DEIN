@@ -31,10 +31,10 @@ namespace EasyBase.src.ui.components
         {
             Main windowMain = (Main)WindowDictionary.getWindow(typeof(Main));
 
-            if(this.getActualWindow().GetType() != typeof(Main))
+            if (this.getActualWindow().GetType() != typeof(Main))
             {
-                if (windowMain == null) new Main().Show();
-                else windowMain.Visibility = Visibility.Visible;
+                windowMain.Visibility = Visibility.Visible;
+                this.getActualWindow().Visibility = Visibility.Hidden;
             }
         }
 
@@ -44,11 +44,9 @@ namespace EasyBase.src.ui.components
 
             if (this.getActualWindow().GetType() != typeof(User_Profile))
             {
-                if (windowUser == null) new User_Profile().Show();
-                else windowUser.Visibility = Visibility.Visible;
+                windowUser.Visibility = Visibility.Visible;
+                this.getActualWindow().Visibility = Visibility.Hidden;
             }
-
-            this.getActualWindow().Visibility = Visibility.Hidden;
         }
 
         private Window getActualWindow()

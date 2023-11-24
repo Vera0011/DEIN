@@ -25,29 +25,25 @@ namespace EasyBase.src.ui.windows
         public Login()
         {
             InitializeComponent();
-            WindowDictionary.addWindow(this);
             this.Activate();
         }
 
         public void Validate_Credentials(object sender, RoutedEventArgs e)
         {
-            /* VALIDATION OF EMAIL AND PASSWORD -> DEACTIVATED FOR FURTHER UPDATES */
             if (string.IsNullOrWhiteSpace(email_input.Text) || string.IsNullOrWhiteSpace(password_input.Text) || email_input.Text == "Email" || password_input.Text == "Password")
             {
                 MessageBox.Show("Email and password are required");
             }
             else
             {
-                this.changeWindow();
-                //new Internal_Code(email_input.Text, password_input.Text, checkbox_remember.IsChecked);
+                new Internal_Auth(email_input.Text, password_input.Text, checkbox_remember.IsChecked);
             }
         }
 
         public void changeWindow()
         {
-            Main window = new Main();
+            ((Main)WindowDictionary.getWindow(typeof(Main))).Visibility = Visibility.Visible;
             this.Visibility = Visibility.Hidden;
-            window.Show();
         }
 
         private void RemoveDefaultText(object sender, RoutedEventArgs e)

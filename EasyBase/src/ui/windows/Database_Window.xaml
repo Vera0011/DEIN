@@ -6,9 +6,186 @@
         xmlns:local="clr-namespace:EasyBase.src.ui.components"
         mc:Ignorable="d"
         Title="Easybase: MongoDB" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowState="Maximized">
-    <DockPanel LastChildFill="False">
+    <Window.Resources>
+        <Style x:Key="search_button" TargetType="TextBox">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border x:Name="border" CornerRadius="10" BorderThickness="0, 0, 0, 2" BorderBrush="#DCDCDC" Background="#CC5803">
+                            <ScrollViewer x:Name="PART_ContentHost" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Control.Background" Value="#E2711D"/>
+                                <Setter TargetName="border" Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="False">
+                                <Setter TargetName="border" Property="Control.Background" Value="#CC5803"/>
+                            </Trigger>
+                            <Trigger Property="IsSelectionActive" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FFF8EB"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="#FFC971"/>
+                                <Setter TargetName="border" Property="Cursor" Value="None"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="10, 5, 10, 5"/>
+            <Setter Property="Foreground" Value="#DCDCDC"/>
+            <Setter Property="FontFamily" Value="Source Sans 3"/>
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+        <Style x:Key="dataUsers" TargetType="Label">
+            <Setter Property="Visibility" Value="Visible"/>
+        </Style>
+        <Style x:Key="dataProducts" TargetType="Label">
+            <Setter Property="Visibility" Value="Collapsed"/>
+        </Style>
+        <Style x:Key="dataEmployees" TargetType="Label">
+            <Setter Property="Visibility" Value="Collapsed"/>
+        </Style>
+        <Style x:Key="cols_name" TargetType="Label">
+            <Setter Property="Background" Value="#B9B9B9"/>
+            <Setter Property="Foreground" Value="#CC5803"/>
+        </Style>
+    </Window.Resources>
+    <DockPanel>
         <local:Navigation_Top DockPanel.Dock="Top"/>
 
-        <local:Navigation_Left/>
+        <local:Navigation_Left DockPanel.Dock="Left"/>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Column="0" BorderBrush="#FFC971" BorderThickness="1" Margin="20" CornerRadius="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Background="#FFC971" Foreground="#E2711D" Grid.Row="0" Content="Collections" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    <Button Grid.Row="1" Foreground="#E2711D" Background="Transparent" Content="Users" Cursor="Hand" Click="load_Users" BorderThickness="0" IsDefault="True"/>
+                    <Button Grid.Row="2" Foreground="#E2711D" Background="Transparent" Content="Employees" Cursor="Hand" Click="load_Employees" BorderThickness="0, 1, 0, 0" BorderBrush="#FFC971"/>
+                    <Button Grid.Row="3" Foreground="#E2711D" Background="Transparent" Content="Products" Cursor="Hand" Click="load_Products" BorderThickness="0, 1, 0, 0" BorderBrush="#FFC971"/>
+                </Grid>
+            </Border>
+            <Border Grid.Column="1" BorderBrush="#FFC971" Background="#FFC971" BorderThickness="1" Margin="20" CornerRadius="10">
+                <Grid Margin="0" x:Name="data_grid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Row="0" Grid.ColumnSpan="4" Grid.Column="0" BorderThickness="0, 1, 0, 0" CornerRadius="10, 10, 0, 0" Background="#B9B9B9">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="AUTO"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <Label Grid.Column="0" x:Name="table_label" Foreground="#E2711D" Content="MongoDB > Users" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="10, 0, 10, 0"/>
+                            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                                <TextBox Style="{StaticResource search_button}" Text="Search" Width="200" Height="30" x:Name="search_input" LostFocus="AddDefaultText" GotFocus="RemoveDefaultText" Margin="0, 0, 10, 0"/>
+                                <Button Background="Transparent" BorderThickness="0" Cursor="Hand" Width="40" Height="30" Margin="0, 0, 10, 0">
+                                    <Button.Content>
+                                        <Image Source="../imgs/search_icon.png"/>
+                                    </Button.Content>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+
+                    <Label Style="{StaticResource cols_name}" Grid.Row="1" Grid.Column="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="id"/>
+                    <Label Style="{StaticResource cols_name}" Grid.Row="1" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Name"/>
+                    <Label Style="{StaticResource cols_name}" x:Name="third_col" Grid.Row="1" Grid.Column="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Surname"/>
+                    <Label Style="{StaticResource cols_name}" x:Name="forth_col" Grid.Row="1" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Balance"/>
+
+                    <Label Style="{DynamicResource dataUsers}" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="1"/>
+                    <Label Style="{DynamicResource dataUsers}" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="Roberto"/>
+                    <Label Style="{DynamicResource dataUsers}" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="Gutierrez"/>
+                    <Label Style="{DynamicResource dataUsers}" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="10.00"/>
+
+                    <Label Style="{DynamicResource dataUsers}" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="2"/>
+                    <Label Style="{DynamicResource dataUsers}" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="Diane"/>
+                    <Label Style="{DynamicResource dataUsers}" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="Foxter"/>
+                    <Label Style="{DynamicResource dataUsers}" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="148.99"/>
+
+                    <Label Style="{DynamicResource dataUsers}" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="3"/>
+                    <Label Style="{DynamicResource dataUsers}" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="Albert"/>
+                    <Label Style="{DynamicResource dataUsers}" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="Rodriguez"/>
+                    <Label Style="{DynamicResource dataUsers}" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="-264.72"/>
+
+                    <Label Style="{DynamicResource dataUsers}" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="4"/>
+                    <Label Style="{DynamicResource dataUsers}" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="Sahid"/>
+                    <Label Style="{DynamicResource dataUsers}" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="Ahmad"/>
+                    <Label Style="{DynamicResource dataUsers}" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="99.52"/>
+
+
+
+                    <Label Style="{DynamicResource dataProducts}" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="1"/>
+                    <Label Style="{DynamicResource dataProducts}" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="iphone14"/>
+                    <Label Style="{DynamicResource dataProducts}" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="200"/>
+                    <Label Style="{DynamicResource dataProducts}" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="1500.00"/>
+
+                    <Label Style="{DynamicResource dataProducts}" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="2"/>
+                    <Label Style="{DynamicResource dataProducts}" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="samsung_s8"/>
+                    <Label Style="{DynamicResource dataProducts}" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="0"/>
+                    <Label Style="{DynamicResource dataProducts}" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="580.00"/>
+
+                    <Label Style="{DynamicResource dataProducts}" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="3"/>
+                    <Label Style="{DynamicResource dataProducts}" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="oppo_v4"/>
+                    <Label Style="{DynamicResource dataProducts}" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="15"/>
+                    <Label Style="{DynamicResource dataProducts}" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="260.00"/>
+
+                    <Label Style="{DynamicResource dataProducts}" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="4"/>
+                    <Label Style="{DynamicResource dataProducts}" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="xiaomi_redmi6"/>
+                    <Label Style="{DynamicResource dataProducts}" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="183"/>
+                    <Label Style="{DynamicResource dataProducts}" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="499.00"/>
+
+
+                    <Label Style="{DynamicResource dataEmployees}" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="1"/>
+                    <Label Style="{DynamicResource dataEmployees}" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="Juan"/>
+                    <Label Style="{DynamicResource dataEmployees}" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="Garcia"/>
+                    <Label Style="{DynamicResource dataEmployees}" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="1500.00"/>
+
+                    <Label Style="{DynamicResource dataEmployees}" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="2"/>
+                    <Label Style="{DynamicResource dataEmployees}" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="Maria"/>
+                    <Label Style="{DynamicResource dataEmployees}" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="Lopez"/>
+                    <Label Style="{DynamicResource dataEmployees}" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="1200.00"/>
+
+                    <Label Style="{DynamicResource dataEmployees}" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="3"/>
+                    <Label Style="{DynamicResource dataEmployees}" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="Carlos"/>
+                    <Label Style="{DynamicResource dataEmployees}" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="Sanchez"/>
+                    <Label Style="{DynamicResource dataEmployees}" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="980.00"/>
+
+                    <Label Style="{DynamicResource dataEmployees}" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="4"/>
+                    <Label Style="{DynamicResource dataEmployees}" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="Laura"/>
+                    <Label Style="{DynamicResource dataEmployees}" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="Fernandez"/>
+                    <Label Style="{DynamicResource dataEmployees}" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="1200.00"/>
+                </Grid>
+            </Border>
+        </Grid>
     </DockPanel>
 </Window>

@@ -2,23 +2,72 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace EasyBase.src.code.database
 {
-    public static class API_Queries
+    public class API_Queries
     {
         private static readonly HttpClient client = new HttpClient();
-        
-        public static StringContent post(string path, object body, string header_auth)
+        private static readonly string baseURL = "http://internal-easybase.es";
+
+        public API_Queries()
         {
-            return null;
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            client.BaseAddress = new Uri(baseURL);
         }
 
-        public static StringContent get(string path, string header_auth)
+        public async Task<string> PostAsync(string path, string body)
         {
-            return null;
+            try
+            {
+                HttpResponseMessage response = await client.PostAsync(path, new StringContent(body, Encoding.UTF8, "application/json"));
+                return await response.Content.ReadAsStringAsync();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            return "401";
+        }
+
+        public async Task<string> PostAsyncWithAuth(string path, string body, string bearer_token)
+        {
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", bearer_token);
+
+            try
+            {
+                HttpResponseMessage response = await client.PostAsync(path, new StringContent(body, Encoding.UTF8, "application/json"));
+                return await response.Content.ReadAsStringAsync();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            return "401";
+        }
+
+        public async Task<string> getAsync(string path, string bearer_token)
+        {
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", bearer_token);
+
+            try
+            {
+                HttpResponseMessage response = await client.GetAsync(path);
+                return await response.Content.ReadAsStringAsync();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            return "401";
         }
     }
 }

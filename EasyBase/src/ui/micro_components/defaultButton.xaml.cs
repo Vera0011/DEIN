@@ -37,7 +37,19 @@ namespace EasyBase.src.ui.micro_components
 
         private void Validate_Credentials(object sender, RoutedEventArgs e)
         {
-            ((Login) WindowDictionary.getWindow(0)).Validate_Credentials(sender, e);
+            if (this.getActualWindow().GetType() == typeof(Login)) ((Login)WindowDictionary.getWindow(typeof(Login))).Validate_Credentials(sender, e);
+        }
+
+        private Window getActualWindow()
+        {
+            DependencyObject parent = this;
+
+            while (parent != null && !(parent is Window))
+            {
+                parent = VisualTreeHelper.GetParent(parent);
+            }
+
+            return (Window)parent;
         }
     }
 }

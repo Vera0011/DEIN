@@ -18,11 +18,6 @@ namespace EasyBase.src.code
             windowDictionary.Add(window);
         }
 
-        public static object getWindow(int position)
-        {
-            return windowDictionary[position];
-        }
-
         public static ArrayList getDictionary()
         {
             return windowDictionary;

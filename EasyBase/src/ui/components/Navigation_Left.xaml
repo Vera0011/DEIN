@@ -6,14 +6,6 @@
              xmlns:local="clr-namespace:EasyBase.src.ui.components"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.Resources>
-        <Style x:Key="main_field">
-
-        </Style>
-        <Style x:Key="option_field">
-
-        </Style>
-    </UserControl.Resources>
     <Grid>
         <Border BorderThickness="0, 0, 1, 0" BorderBrush="#FFC971">
             <Grid DockPanel.Dock="Left">

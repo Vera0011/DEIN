@@ -23,7 +23,6 @@ namespace EasyBase.src.ui.windows
         public Manage_Window()
         {
             InitializeComponent();
-            WindowDictionary.addWindow(this);
             this.Activate();
         }
 

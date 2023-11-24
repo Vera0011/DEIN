@@ -3,10 +3,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:EasyBase.src.ui.windows"
+        xmlns:local="clr-namespace:EasyBase.src.ui.micro_components"
         mc:Ignorable="d"
-        Title="Export_Window" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
-    <Grid>
-        
+        Title="Export - MongoDB" Height="400" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Margin="50">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <ComboBox Grid.Row="0" Background="#FFC971" BorderBrush="#FFC971" BorderThickness="2">
+            <ComboBoxItem>JSON</ComboBoxItem>
+            <ComboBoxItem>CSV</ComboBoxItem>
+        </ComboBox>
+        <local:defaultButton Grid.Row="2" Text="Download" Cursor="Hand"/>
     </Grid>
 </Window>

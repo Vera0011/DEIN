@@ -24,7 +24,6 @@ namespace EasyBase.src.ui.windows
         public Main()
         {
             InitializeComponent();
-            WindowDictionary.addWindow(this);
             this.Activate();
         }
 
@@ -36,7 +35,7 @@ namespace EasyBase.src.ui.windows
 
         public void go_to_database(object sender, EventArgs args)
         {
-            new Database_Window().Show();
+            ((Database_Window)WindowDictionary.getWindow(typeof(Database_Window))).Visibility = Visibility.Visible;
             this.Visibility = Visibility.Hidden;
         }
 
