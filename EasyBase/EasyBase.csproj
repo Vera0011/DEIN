@@ -272,8 +272,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\code\auth\Internal_Auth.cs" />
-    <Compile Include="src\code\api\API_Queries.cs" />
+    <Compile Include="src\code\Internal_Auth.cs" />
+    <Compile Include="src\code\API_Queries.cs" />
     <Compile Include="src\code\WindowDictionary.cs" />
     <Compile Include="src\ui\components\Navigation_Left.xaml.cs">
       <DependentUpon>Navigation_Left.xaml</DependentUpon>
