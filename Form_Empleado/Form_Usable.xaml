@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Form_Empleado"
         mc:Ignorable="d"
-        Title="Introduccion de Datos de Empleados" Height="1000" Width="300" ResizeMode="NoResize">
+        Background="#FFA500"
+        Title="Introduccion de Datos de Empleados" Height="1000" Width="300" ResizeMode="NoResize" ForceCursor="True" Cursor="None">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -17,10 +18,10 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Margin="0">
+        <StackPanel Grid.Row="0" Margin="0" Background="#39FF14">
             <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Introducción de Datos</Label>
         </StackPanel>
-        <Grid Grid.Row="1" Margin="0, 10, 0, 0">
+        <Grid Grid.Row="1" Margin="0, 10, 0, 0" Background="#39FF14">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -33,33 +34,33 @@
                 <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
 
-            <TextBox x:Name="name"  Grid.Row="0" Margin="5" VerticalContentAlignment="Center" VerticalAlignment="Center"></TextBox>
+            <TextBox Background="#FFA500" x:Name="name"  Grid.Row="0" Margin="5" VerticalContentAlignment="Center" VerticalAlignment="Center"></TextBox>
 
-            <TextBox x:Name="surname" Grid.Row="1" Margin="5" VerticalContentAlignment="Center" VerticalAlignment="Center"></TextBox>
+            <TextBox Background="#FFA500" x:Name="surname" Grid.Row="1" Margin="5" VerticalContentAlignment="Center" VerticalAlignment="Center"></TextBox>
 
-            <TextBox x:Name="email" Grid.Row="2" Margin="5" VerticalContentAlignment="Center" VerticalAlignment="Center"></TextBox>
+            <TextBox Background="#FFA500" x:Name="email" Grid.Row="2" Margin="5" VerticalContentAlignment="Center" VerticalAlignment="Center"></TextBox>
 
-            <TextBox x:Name="phone" Grid.Row="3" Margin="5" VerticalContentAlignment="Center" VerticalAlignment="Center"></TextBox>
+            <TextBox Background="#FFA500" x:Name="phone" Grid.Row="3" Margin="5" VerticalContentAlignment="Center" VerticalAlignment="Center"></TextBox>
 
-            <DatePicker IsTodayHighlighted="True" Grid.Row="4" Margin="5" VerticalContentAlignment="Center" VerticalAlignment="Center"></DatePicker>
+            <DatePicker Background="#FFA500" IsTodayHighlighted="True" Grid.Row="4" Margin="5" VerticalContentAlignment="Center" VerticalAlignment="Center"></DatePicker>
 
-            <TextBox Grid.Row="5" Margin="5" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Left"></TextBox>
+            <TextBox Background="#FFA500" Grid.Row="5" Margin="5" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Left"></TextBox>
         </Grid>
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="2" Background="#39FF14">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Button Grid.Column="1" Content="Cargar Foto" HorizontalAlignment="Left" VerticalAlignment="Center" Click="uploadImage" Name="button"></Button>
+            <Button Background="#800080" Foreground="#39FF14" Grid.Column="1" Content="Cargar Foto" HorizontalAlignment="Left" VerticalAlignment="Center" Click="uploadImage" Name="button"></Button>
             <Image x:Name="imageUploaded" HorizontalAlignment="Right">
                 <Image.Source>
                     <BitmapImage UriSource=""></BitmapImage>
                 </Image.Source>
             </Image>
         </Grid>
-        <Grid Grid.Row="3">
+        <Grid Grid.Row="3" Background="#39FF14">
             <Grid.RowDefinitions>
                 <RowDefinition Height="180"/>
             </Grid.RowDefinitions>
@@ -79,12 +80,12 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="30"/>
                 </Grid.ColumnDefinitions>
-                
-                <TextBox Grid.Row="0" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5" HorizontalContentAlignment="Left" Name="Direccion">D</TextBox>
-                <TextBox Grid.Row="1" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5" HorizontalContentAlignment="Left" Name="Ciudad">C</TextBox>
-                <TextBox Grid.Row="2" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5" HorizontalContentAlignment="Left" Name="Provincia">P</TextBox>
-                <TextBox Grid.Row="3" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5" HorizontalContentAlignment="Left" Name="Codigo_Postal">C</TextBox>
-                <TextBox Grid.Row="4" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5" HorizontalContentAlignment="Left" Name="Pais">P</TextBox>
+
+                <TextBox Background="#FFA500" Grid.Row="0" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5" HorizontalContentAlignment="Left" Name="Direccion">D</TextBox>
+                <TextBox Background="#FFA500" Grid.Row="1" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5" HorizontalContentAlignment="Left" Name="Ciudad">C</TextBox>
+                <TextBox Background="#FFA500" Grid.Row="2" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5" HorizontalContentAlignment="Left" Name="Provincia">P</TextBox>
+                <TextBox Background="#FFA500" Grid.Row="3" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5" HorizontalContentAlignment="Left" Name="Codigo_Postal">C</TextBox>
+                <TextBox Background="#FFA500" Grid.Row="4" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="5" HorizontalContentAlignment="Left" Name="Pais">P</TextBox>
             </Grid>
 
             <Image Grid.Column="1" HorizontalAlignment="Left">
@@ -93,7 +94,7 @@
                 </Image.Source>
             </Image>
         </Grid>
-        <Grid Grid.Row="4" Margin="0, 10, 0, 0">
+        <Grid Grid.Row="4" Margin="0, 10, 0, 0" Background="#39FF14">
             <Grid.ColumnDefinitions>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -102,9 +103,9 @@
             </Grid.RowDefinitions>
 
             <Label Grid.Row="0" Margin="0, 0, 0, 10">SS</Label>
-            <TextBox Grid.Row="0" Width="10" HorizontalContentAlignment="Right" HorizontalAlignment="Right" VerticalContentAlignment="Center"></TextBox>
+            <TextBox Background="#FFA500" Grid.Row="0" Width="20" HorizontalContentAlignment="Right" HorizontalAlignment="Right" VerticalContentAlignment="Center"></TextBox>
             <Label Grid.Row="1" Grid.Column="0" Margin="0, 0, 10, 10">R</Label>
-            <ComboBox Grid.Row="1" Grid.Column="1" MaxWidth="300" Width="10" HorizontalAlignment="Right" Margin="0, 0, 10, 10">
+            <ComboBox Background="#FFA500" Grid.Row="1" Grid.Column="1" MaxWidth="300" Width="20" HorizontalAlignment="Right" Margin="0, 0, 10, 10">
                 <ComboBoxItem>
                     <Label>Desarrollador</Label>
                 </ComboBoxItem>
@@ -113,21 +114,21 @@
                 </ComboBoxItem>
             </ComboBox>
         </Grid>
-        <Grid Grid.Row="5" Margin="0, 10, 0, 0">
+        <Grid Grid.Row="5" Margin="0, 10, 0, 0" Background="#39FF14">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
 
-            <TextBox Grid.Row="1" Margin="5" TextWrapping="Wrap" HorizontalContentAlignment="Left" VerticalContentAlignment="Top"></TextBox>
+            <TextBox  Background="#39FF14" Grid.Row="1" Margin="5" TextWrapping="Wrap" HorizontalContentAlignment="Left" VerticalContentAlignment="Top"></TextBox>
         </Grid>
-        <Grid Grid.Row="6" Margin="0, 10, 0, 0">
+        <Grid Grid.Row="6" Margin="0, 10, 0, 0" Background="#39FF14">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Name="button2" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5" Padding="10" Height="100" Click="appendData">Guardar</Button>
-            <Button Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5" Padding="10" Height="100" Click="closeAndOpen">Cancelar</Button>
+            <Button Background="#800080" Foreground="#39FF14" Grid.Column="0"  Name="button2" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5" Padding="10" Height="100" Click="appendData">Guardar</Button>
+            <Button Background="#800080" Foreground="#39FF14" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5" Padding="10" Height="100" Click="closeAndOpen">Cancelar</Button>
         </Grid>
         <Grid Grid.Row="7">
             <DataGrid AutoGenerateColumns="False" Name="dataGrid">
@@ -140,6 +141,7 @@
                 <DataGrid.CellStyle>
                     <Style>
                         <Setter Property="Control.Width" Value="200"/>
+                        <Setter Property="Control.Background" Value="#39FF14"/>
                     </Style>
                 </DataGrid.CellStyle>
             </DataGrid>
